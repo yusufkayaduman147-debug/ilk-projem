@@ -158,18 +158,18 @@ def main():
             st = int(l["start"] * SR)
             voice[st:st + len(a)] += a[: max(0, N - st)]
     v = signal.sosfilt(signal.butter(2, 75, "high", fs=SR, output="sos"), voice)
-    for sos in (peq(170, 1.8, 0.8), peq(420, -2.0, 1.1), peq(3100, 2.2, 0.9), shelf(7000, 1.5, True)):
+    # Piper vokoderi 6-9 kHz'de parlak: yüksek rafı indir, varlığı 3 kHz'de tut
+    for sos in (peq(170, 1.5, 0.8), peq(420, -2.0, 1.1), peq(3000, 1.8, 0.9), shelf(6500, -4.0, True)):
         v = signal.sosfilt(sos, v)
-    # yumuşak sıskalık giderici (6-9 kHz)
-    ss = signal.sosfilt(signal.butter(2, [5500, 9500], "band", fs=SR, output="sos"), v)
-    se = envelope(ss, 0.002, 0.06)
-    over = np.maximum(0, 20 * np.log10(se + 1e-9) - 20 * np.log10(np.percentile(se[se > 1e-4], 90) + 1e-9))
-    v = v - ss * (1 - 10 ** (-np.minimum(over, 6) / 20))
+    # dinamik sıskalık giderici (5-10 kHz bandı, en çok 9 dB)
+    ss = signal.sosfilt(signal.butter(2, [5000, 10000], "band", fs=SR, output="sos"), v)
+    se = envelope(ss, 0.002, 0.05)
+    ref = np.percentile(se[se > 1e-4], 70)
+    over = np.maximum(0, 20 * np.log10(se + 1e-9) - 20 * np.log10(ref + 1e-9))
+    red = 1 - 10 ** (-np.minimum(over * 0.75, 9) / 20)
+    v = v - ss * red
     v = compress(v, thr_db=-26, ratio=2.6, attack=0.006, release=0.14)
-    # hafif "hava" (harmonik uyarıcı)
-    hb = signal.sosfilt(signal.butter(2, [2500, 7000], "band", fs=SR, output="sos"), v)
-    ex = signal.sosfilt(signal.butter(2, 8000, "high", fs=SR, output="sos"), np.tanh(hb * 6))
-    v = v + ex * 0.05
+    v = signal.sosfilt(signal.butter(4, 10800, "low", fs=SR, output="sos"), v)
     rv = signal.oaconvolve(v, room_ir(), mode="full")[:N]
     v = v + rv * 0.07
     loud = meter.integrated_loudness(np.stack([v, v], 1))

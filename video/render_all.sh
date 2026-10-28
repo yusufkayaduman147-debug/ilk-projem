@@ -35,14 +35,4 @@ for ((i = 0; i < CHUNKS; i++)); do
   echo "file '$WORK/seg/part$(printf %02d $i).mkv'" >> "$WORK/seg/list.txt"
 done | xargs -P "$JOBS" -L 1 sh -c 'node render/render.cjs --from "$0" --to "$1" --out "$2" > "$2.log" 2>&1'
 
-ffmpeg -y -loglevel error -f concat -safe 0 -i "$WORK/seg/list.txt" -c copy "$WORK/seg/video_master.mkv"
-# Ana dosya: H.264 + AAC + Türkçe yumuşak altyazı
-ffmpeg -y -loglevel error -i "$WORK/seg/video_master.mkv" -i "$WORK/build/mix.wav" -i "$OUT/islamin_dogusu_ve_yayilisi.tr.srt" \
-  -map 0:v -map 1:a -map 2:s -c:v libx264 -preset slow -crf 19 -profile:v high -pix_fmt yuv420p -tune film \
-  -c:a aac -b:a 256k -c:s mov_text -metadata:s:s:0 language=tur -metadata:s:a:0 language=tur \
-  -metadata title="İslam'ın Doğuşu ve Yayılışı" -movflags +faststart -shortest "$OUT/islamin_dogusu_ve_yayilisi.mp4"
-# Altyazısı videoya gömülü sürüm
-ffmpeg -y -loglevel error -i "$WORK/seg/video_master.mkv" -i "$WORK/build/mix.wav" \
-  -vf "ass=$WORK/build/subs.ass" -map 0:v -map 1:a -c:v libx264 -preset slow -crf 20 -profile:v high -pix_fmt yuv420p -tune film \
-  -c:a aac -b:a 256k -metadata title="İslam'ın Doğuşu ve Yayılışı (altyazılı)" -movflags +faststart -shortest "$OUT/islamin_dogusu_ve_yayilisi_altyazili.mp4"
-ls -la "$OUT"
+./encode.sh "$WORK/seg/list.txt"

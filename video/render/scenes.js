@@ -773,8 +773,9 @@ SCENES.farewell = {
       fillRidge(ctx, rg[1], '#4a2a28');
       // Rahmet Dağı ve sütun
       fillRidge(ctx, ART.ridges.rahma, '#2a1714', 'rgba(255,200,160,0.25)');
-      ctx.fillStyle = '#efe6d6'; ctx.fillRect(W * 0.6 - 5, H * 0.655 - 50, 10, 52);
-      ctx.fillStyle = 'rgba(255,230,200,0.5)'; ctx.fillRect(W * 0.6 - 5, H * 0.655 - 50, 3, 52);
+      const top = ART.ridges.rahma.reduce((b, p) => Math.abs(p[0] - W * 0.6) < 40 && p[1] < b[1] ? p : b, [W * 0.6, H]);
+      ctx.fillStyle = '#efe6d6'; ctx.fillRect(top[0] - 5, top[1] - 46, 10, 50);
+      ctx.fillStyle = 'rgba(255,230,200,0.5)'; ctx.fillRect(top[0] - 5, top[1] - 46, 3, 50);
       // çadırlar
       const r = rng(31);
       for (let i = 0; i < 70; i++) {
@@ -1325,6 +1326,6 @@ function prepArt() {
     hira: [ridgePath(301, H * 0.80, 110, 0.55), ridgePath(302, H * 0.98, 150, 0.62, [{ x: W * 0.565, h: 600, w: 190, jag: 120 }, { x: W * 0.47, h: 230, w: 120, jag: 60 }, { x: W * 0.66, h: 300, w: 150, jag: 80 }, { x: W * 0.80, h: 160, w: 200, jag: 50 }])],
     medina: [ridgePath(401, H * 0.66, 110, 0.5, [{ x: W * 0.35, h: 120, w: 380 }, { x: W * 0.62, h: 90, w: 260 }])],
     arafat: [ridgePath(501, H * 0.70, 120, 0.55, [{ x: W * 0.8, h: 140, w: 300 }]), ridgePath(502, H * 0.79, 60, 0.5)],
-    rahma: ridgePath(503, H * 0.86, 30, 0.6, [{ x: W * 0.6, h: 150, w: 120 }]),
+    rahma: ridgePath(503, H * 0.86, 30, 0.6, [{ x: W * 0.6, h: 150, w: 120, jag: 40 }]),
   };
 }
