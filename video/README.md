@@ -5,6 +5,14 @@ Hint Okyanusu'nun ticaret yollarına uzanan, Türkçe seslendirmeli animasyonlu 
 Seslendirme, özgün fon müziği, harita animasyonları ve illüstrasyonların tamamı bu klasördeki
 kodla üretilmiştir.
 
+![Başlık karesi](afis.jpg)
+
+## İzle
+
+- **[cikti/islamin_dogusu_ve_yayilisi_720p.mp4](cikti/islamin_dogusu_ve_yayilisi_720p.mp4)** — 720p, Türkçe altyazı akışı dahil (GitHub'ın 100 MB dosya sınırı nedeniyle depodaki sürüm)
+- [cikti/islamin_dogusu_ve_yayilisi.tr.srt](cikti/islamin_dogusu_ve_yayilisi.tr.srt) — ayrı altyazı dosyası
+- 1080p ana sürüm (≈ 300 MB) ve altyazısı gömülü sürüm `./encode.sh` ile üretilir; depoya eklenmez.
+
 ## Bölümler
 
 | Zaman | Bölüm |

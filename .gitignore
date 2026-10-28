@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+# büyük video dosyaları (GitHub 100 MB sınırı) — depoda yalnızca 720p sürüm tutulur
+video/cikti/islamin_dogusu_ve_yayilisi.mp4
+video/cikti/islamin_dogusu_ve_yayilisi_altyazili.mp4
