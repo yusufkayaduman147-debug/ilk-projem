@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+# Anlatım metni: her sahne bir görsel bölüm; her satır ayrı seslendirilir ve altyazı olur.
+SCENES = [
+ dict(id="intro", lines=[
+  "Yedinci yüzyılın başında dünya, iki büyük imparatorluğun gölgesindeydi.",
+  "Batıda Bizans, doğuda Sasani İranı; yıllardır süren savaşlarla birbirlerini tüketiyorlardı.",
+  "Bu iki gücün arasında uzanan Arabistan Yarımadası ise, kumların ve kervan yollarının sessiz diyarıydı.",
+  "Ve tarihin akışını değiştirecek çağrı, işte bu çölün kalbinden yükselecekti.",
+ ]),
+ dict(id="mecca", lines=[
+  "Mekke, Hicaz bölgesinde, Yemen ile Şam arasındaki kervan yolunun üzerinde kurulmuş bir ticaret şehriydi.",
+  "Şehrin merkezinde, Hz. İbrahim ve oğlu Hz. İsmail'in inşa ettiği Kâbe bulunuyordu.",
+  "Ancak zamanla tevhid inancı unutulmuş, Kâbe'nin çevresi putlarla doldurulmuştu.",
+  "Güçlüler zayıfları eziyor, adalet yerini kabile gururuna bırakıyordu. Bu döneme cahiliye çağı denir.",
+ ]),
+ dict(id="birth", lines=[
+  "571 yılında, Fil Yılı olarak bilinen yılda, Hz. Muhammed Mekke'de dünyaya geldi.",
+  "Doğmadan babası Abdullah'ı, altı yaşında annesi Âmine'yi kaybetti; önce dedesi Abdülmuttalib'in, sonra amcası Ebu Talib'in himayesinde büyüdü.",
+  "Dürüstlüğüyle öyle tanındı ki, Mekkeliler ona el-Emin, yani güvenilir kişi dediler.",
+  "Yirmi beş yaşında, ticaret kervanlarını yönettiği Hz. Hatice ile evlendi.",
+ ]),
+ dict(id="hira", lines=[
+  "Kırk yaşına yaklaştığında, Nur Dağı'ndaki Hira Mağarası'nda sık sık tefekküre çekilir oldu.",
+  "610 yılının Ramazan ayında, Kadir Gecesi'nde, Cebrail aracılığıyla ilk vahiy geldi.",
+  "Oku! Yaratan Rabbinin adıyla oku!",
+  "Böylece yirmi üç yıl sürecek peygamberlik dönemi başladı.",
+ ]),
+ dict(id="dawah", lines=[
+  "İlk inananlar en yakınındakiler oldu: Hz. Hatice, Hz. Ali, Hz. Ebubekir ve Zeyd bin Harise.",
+  "Üç yıl süren gizli davetin ardından İslam, Mekke'de açıkça tebliğ edilmeye başlandı.",
+  "Tek Allah inancı ve insanların eşitliği fikri, Mekke'nin güçlü ailelerini rahatsız etti; Müslümanlar ağır baskılara uğradı.",
+  "615 yılında bir grup Müslüman, adaletiyle tanınan Habeşistan Kralı Necaşi'ye sığındı.",
+  "Ardından üç yıl süren boykot geldi. Hz. Hatice ile Ebu Talib'in vefat ettiği 619 yılı, Hüzün Yılı olarak anıldı.",
+ ]),
+ dict(id="hijra", lines=[
+  "Bu sırada Yesrib'den gelen Müslümanlar, Akabe'de Peygamber Efendimize bağlılık sözü verdi.",
+  "622 yılında Hz. Muhammed, Hz. Ebubekir ile birlikte gizlice Mekke'den ayrıldı.",
+  "Sevr Mağarası'nda üç gün saklandıktan sonra, yaklaşık dört yüz kilometrelik zorlu bir yolculukla Yesrib'e ulaştılar.",
+  "Bu göç Hicret olarak tarihe geçti ve İslam takviminin başlangıcı kabul edildi.",
+  "Yesrib'in adı artık Medine olacaktı: Peygamber şehri.",
+ ]),
+ dict(id="medina", lines=[
+  "Medine'de Mescid-i Nebevi inşa edildi; burası ibadetin, eğitimin ve yönetimin merkezi oldu.",
+  "Mekke'den göç eden Muhacirler ile Medineli Ensar, birbirlerine kardeş ilan edildi.",
+  "Şehirdeki Müslümanlar, Yahudiler ve diğer topluluklar arasında, hak ve görevleri belirleyen Medine Sözleşmesi imzalandı.",
+ ]),
+ dict(id="battles", lines=[
+  "Ancak Mekkeli müşrikler Müslümanları rahat bırakmadı.",
+  "624 yılında Bedir'de, sayıca üç kat güçlü bir orduya karşı büyük bir zafer kazanıldı.",
+  "Bunu Uhud ve Hendek savaşları izledi; Hendek'te şehrin önüne kazılan derin bir hendek, Medine'yi korudu.",
+  "628'de imzalanan Hudeybiye Antlaşması, ilk bakışta Müslümanların aleyhine görünse de, Kur'an'da apaçık bir fetih olarak müjdelendi.",
+  "Barış ortamında İslam hızla yayıldı; Bizans, İran ve Mısır hükümdarlarına davet mektupları gönderildi.",
+ ]),
+ dict(id="conquest", lines=[
+  "630 yılında, Mekkelilerin antlaşmayı bozması üzerine, on bin kişilik bir ordu Mekke'ye yürüdü.",
+  "Şehir neredeyse hiç kan dökülmeden fethedildi ve Kâbe putlardan temizlendi.",
+  "Yıllarca Müslümanlara eziyet edenlere genel af ilan edildi: Bugün size kınama yok. Gidin, hepiniz serbestsiniz.",
+ ]),
+ dict(id="farewell", lines=[
+  "632 yılındaki Veda Haccı'nda Peygamber Efendimiz, insanlığa şu evrensel mesajı verdi:",
+  "Arap'ın Arap olmayana, Arap olmayanın da Arap'a üstünlüğü yoktur. Üstünlük ancak takvadadır.",
+  "Aynı yıl Medine'de vefat etti. Arabistan Yarımadası'nın neredeyse tamamı artık tek bir inanç etrafında birleşmişti.",
+ ]),
+ dict(id="caliphs", lines=[
+  "Onun ardından, Dört Halife Dönemi başladı.",
+  "Hz. Ebubekir, iç isyanları bastırdı ve Kur'an-ı Kerim'i tek bir kitap halinde topladı.",
+  "Hz. Ömer döneminde Yermük ve Kadisiye zaferleriyle Suriye, Irak ve İran'ın kapıları açıldı.",
+  "Kudüs barış içinde teslim alındı, Mısır fethedildi.",
+  "Hz. Osman, Kur'an'ın çoğaltılarak büyük şehirlere gönderilmesini sağladı; ilk deniz seferleri yapıldı.",
+  "Hz. Ali döneminde ise iç karışıklıklar baş gösterdi.",
+  "Bu dönemin sonunda İslam toprakları, Libya'dan Ceyhun Nehri'ne, Kafkasya'dan Hint Okyanusu'na uzanıyordu.",
+ ]),
+ dict(id="umayyad", lines=[
+  "661'de kurulan Emeviler, başkenti Şam'a taşıdı.",
+  "Batıda Kuzey Afrika baştan başa geçildi. 711'de Tarık bin Ziyad, boğazı aşarak Endülüs'e ayak bastı.",
+  "Cebelitarık, yani Tarık'ın Dağı, bugün hâlâ onun adını taşıyor.",
+  "Doğuda Kuteybe bin Müslim Maveraünnehir'e, Muhammed bin Kasım ise İndus vadisine ulaştı.",
+  "Emeviler İstanbul'u da kuşattı. Sahabe Ebu Eyyub el-Ensari, bu kuşatmalardan birinde surların önünde vefat etti.",
+  "732'deki Puvatya Savaşı ise batıdaki ilerleyişin sınırını çizdi.",
+  "Böylece devlet, İspanya'dan Hindistan'a uzanan, tarihin en geniş imparatorluklarından biri haline geldi.",
+ ]),
+ dict(id="abbasid", lines=[
+  "750 yılında yönetim Abbasilere geçti.",
+  "Bir yıl sonra Talas Savaşı'nda Abbasiler, Karluk Türklerinin desteğiyle Çin ordusunu yendi; bu zafer, Türklerle İslam dünyası arasında yeni bir dönemin başlangıcı oldu.",
+  "762'de kurulan Bağdat, kısa sürede dünyanın en büyük ilim ve kültür merkezlerinden biri haline geldi.",
+  "Beytü'l-Hikme'de Yunan, Hint ve İran eserleri Arapçaya çevrildi.",
+  "Harezmi, cebirin temellerini attı; sıfırla birlikte bugün kullandığımız rakamlar, Avrupa'ya bu yolla ulaştı.",
+  "Farabi, İbn Sina ve Biruni gibi âlimler, insanlığın ortak mirasına paha biçilmez katkılar sundu.",
+ ]),
+ dict(id="turks", lines=[
+  "Onuncu yüzyılda Türkler, kitleler halinde İslamiyeti kabul etmeye başladı.",
+  "Satuk Buğra Han'ın Müslüman olmasıyla Karahanlılar, İslamiyeti benimseyen ilk büyük Türk devletlerinden biri oldu.",
+  "Gazneliler İslam'ı Hindistan içlerine taşıdı; Büyük Selçuklular ise İslam dünyasının koruyucusu oldu.",
+  "1071'de Sultan Alparslan, Malazgirt'te Bizans ordusunu yendi ve Anadolu'nun kapıları Türklere açıldı.",
+ ]),
+ dict(id="trade", lines=[
+  "İslam yalnızca fetihlerle değil; tüccarların, âlimlerin ve dervişlerin güzel ahlakıyla da yayıldı.",
+  "Arap ve Fars tüccarlar, Hint Okyanusu boyunca Doğu Afrika kıyılarından Endonezya adalarına kadar ulaştı.",
+  "Bugün dünyanın en kalabalık Müslüman nüfusuna sahip olan Endonezya'ya İslam, ticaret ve dostlukla girdi.",
+  "Büyük Sahra'yı aşan kervanlar ise Batı Afrika'ya ulaştı. Mali Sultanı Mansa Musa'nın 1324'teki görkemli hac yolculuğu dillere destan oldu; Timbuktu bir ilim şehrine dönüştü.",
+ ]),
+ dict(id="finale", lines=[
+  "Hira Mağarası'nda yankılanan ilk kelimeden bu yana on dört asırdan fazla zaman geçti.",
+  "Bugün dünyada yaklaşık iki milyar Müslüman yaşıyor; bu, insanlığın neredeyse dörtte biri demek.",
+  "Mekke'nin çöllerinde başlayan bu yolculuk, ilmi, adaleti ve merhameti esas alan bir medeniyetin doğuşuydu.",
+  "Ve o ilk emir, bugün hâlâ insanlığa seslenmeye devam ediyor: Oku!",
+ ]),
+]
